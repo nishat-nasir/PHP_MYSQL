@@ -1,10 +1,10 @@
 # CRUD-PHP-MySQL
 
-# It also includes [PHP_MYSQL is the project name]the
+- [PHP_MYSQL] is the project name
 
 api :
 
-# http://localhost/PHP_MYSQL/Api/getAllProdApi.php
+- http://localhost/PHP_MYSQL/Api/getAllProdApi.php
 
 This is a simple PHP MYSQL project which includes
 
