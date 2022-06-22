@@ -18,7 +18,7 @@ if (isset($_POST['edit_data'])) {
 
     // cek apa query berhasil disimpan?
     if ($query)
-        header('Location: ./index.php?update=sukses');
+        header('Location: ./index.php?update=success');
     else
         header('Location: ./index.php?update=gagal');
 } else

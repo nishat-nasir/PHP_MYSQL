@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" style="position: sticky !important;
     top: 0 !important; z-index : 99999 !important;">
         <div class="container-fluid container">
-            <a class="navbar-brand" href="#">Ecom Admin Panel</a>
+            <a class="navbar-brand" href="#">Admin Panel</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,21 +57,21 @@
                 <!-- show success message added -->
                 <?php if (isset($_GET['status'])) : ?>
                     <?php
-                    if ($_GET['status'] == 'sukses')
+                    if ($_GET['status'] == 'success')
                         echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                         <strong>Success!</strong> Data added successfully!
                         <button type='button' class='btn-close' onclick='clicking()' data-bs-dismiss='alert' aria-label='Close'></button>
                       </div>";
                     else
                         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                        <strong>Ups!</strong> Data gagal ditambahkan!
+                        <strong>Ups!</strong>Data failed to add!
                         <button type='button' class='btn-close' onclick='clicking()' data-bs-dismiss='alert' aria-label='Close'></button>
                       </div>";
                     ?>
                 <?php endif; ?>
 
 
-                <form class="row g-3" action="tambah.php" method="POST">
+                <form class="row g-3" action="create.php" method="POST">
                     <div class="col-12">
                         <label for="prodName" class="form-label">Product name</label>
                         <input type="text" name="prodName" class="form-control" placeholder="Product name" required>
@@ -93,7 +93,7 @@
                         <input type="number" name="qty" class=" form-control" placeholder="Quantity" required>
                     </div>
                     <div class="col-12 mb-5 ">
-                        <button type="submit" class="btn btn-primary" value="daftar" name="tambah"><i class="fa fa-plus"></i><span class="ms-2">Add Data</span></button>
+                        <button type="submit" class="btn btn-primary" value="daftar" name="create"><i class="fa fa-plus"></i><span class="ms-2">Add Data</span></button>
                     </div>
                 </form>
 
@@ -124,9 +124,9 @@
 
 
         <!-- show message deleted success -->
-        <?php if (isset($_GET['hapus'])) : ?>
+        <?php if (isset($_GET['delete'])) : ?>
             <?php
-            if ($_GET['hapus'] == 'sukses')
+            if ($_GET['delete'] == 'success')
                 echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                         <strong>Success!</strong> Data deleted successfully!
                         <button type='button' class='btn-close' onclick='clicking()' data-bs-dismiss='alert' aria-label='Close'></button>
@@ -142,14 +142,14 @@
         <!-- show success message in edit-->
         <?php if (isset($_GET['update'])) : ?>
             <?php
-            if ($_GET['update'] == 'sukses')
+            if ($_GET['update'] == 'success')
                 echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-                        <strong>Sukses!</strong> Data berhasil diupdate!
+                        <strong>success!</strong> Data updated successfully!
                         <button type='button' class='btn-close' onclick='clicking()' data-bs-dismiss='alert' aria-label='Close'></button>
                       </div>";
             else
                 echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                        <strong>Ups!</strong> Data gagal diupdate!
+                        <strong>Ups!</strong> Data failed to update!
                         <button type='button' class='btn-close' onclick='clicking()' data-bs-dismiss='alert' aria-label='Close'></button>
                       </div>";
             ?>
@@ -211,7 +211,7 @@
 
                 echo "<button type='button' class='btn btn-primary editButton pad m-1'><span class='material-icons align-middle'>edit</span></button>";
 
-                // tombol hapus
+                // tombol delete
                 echo "
                             <!-- Button trigger modal -->
                             <button type='button' class='btn btn-danger deleteButton pad m-1'><span class='material-icons align-middle'>delete</span></button>";
@@ -223,7 +223,7 @@
             echo "</tbody>";
             echo "</table>";
             if ($jumlah_data == 0) {
-                echo "<p class='text-center'>Tidak ada data yang tersedia pada tabel ini</p>";
+                echo "<p class='text-center'>No data available in this table</p>";
             } else {
                 echo "<p>Total $jumlah_data Entries</p>";
             }
@@ -340,7 +340,7 @@
                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                     </div>
 
-                    <form action='hapus.php' method='POST'>
+                    <form action='delete.php' method='POST'>
                         <div class='modal-body text-start'>
                             <input type='hidden' name='delete_id' id='delete_id'>
                             <p>Are you sure you want to delete this data?</p>
